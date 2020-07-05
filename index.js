@@ -29,7 +29,6 @@ io.on('connection', socket => {
   socket.on('update_code', data => {
     if (roomId) {
       const { code } = data
-      socket.emit('update_code', { code })
       socket.broadcast.to(roomId).emit('update_code', { code })
     }
   })
